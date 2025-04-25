@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Cotronllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middelware'=> 'admin', 'prefix'=> 'admin'], function() {
+
+    Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('dashboard');
+
+});
