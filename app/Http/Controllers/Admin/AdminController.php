@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
           $user = auth()->user();
 
-          return view('admin.home', compact('user'));
+          return view('admin.dashboard', compact('user'));
    
     }
 
